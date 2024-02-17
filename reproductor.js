@@ -190,28 +190,68 @@ class PlayList {
 
 // Class Reproductor
 class Reproductor {
-  constructor(){
+  constructor() {
     this.cancionActual = {};
     this.listaActual = [];
     this.audioActual = new Audio();
     this.volumenInicial = 0.5;
-  }
+    this.interaccionUsuario = false;
 
-  //aquí mostramos la canción en el reproductor, se concatena al urlSong (mp3) y la portada 
-  setCancionActual(objCancion){
-    this.cancionActual = objCancion;
-    
-    // para reproducirse otra canción hay que parar la canción actual, caso contrario se reproducen al mismo tiempo
-    if(this.hayCancionActual()){
-      this.stop();
+    // Verificamos si el catálogo de canciones tiene elementos
+    if (MisCancionesCatalogo.length > 0) {
+      // Si hay canciones en el catálogo, establecemos la lista actual como el catálogo completo
+      this.setListaActual(MisCancionesCatalogo);
+      // También establecemos la canción actual como la primera del catálogo
+      this.setCancionActual(MisCancionesCatalogo[0]);
     }
 
-    const miAudio = new Audio(dir_canciones + "./"+ this.cancionActual.urlSong);
-    miAudio.volume = this.volumenInicial;
-    this.audioActual = miAudio;
+    this.stop();
+    this.muted = false;
+
+    this.audioActual.addEventListener('ended', () => {
+      this.siguienteCancion();
+    });
+
+    const avanzarBoton = document.getElementById('adelante');
+    const retrocederBoton = document.getElementById('atras');
+
+    avanzarBoton.addEventListener('click', () => {
+      this.avanzar();
+    });
+
+    retrocederBoton.addEventListener('click', () => {
+      this.retroceder();
+    });
+
+    const detenerBoton = document.getElementById('stop');
+
+    detenerBoton.addEventListener('click', () => {
+      this.detener();
+    });
+  }
+
+  
+  
+  
+
+  setCancionActual(objCancion) {
+    this.cancionActual = objCancion;
+
+    // para reproducirse otra canción hay que parar la canción actual, caso contrario se reproducen al mismo tiempo
+    if (this.hayCancionActual()) {
+        this.stop();
+    }
+
+    // Utiliza la misma instancia de Audio y solo cambia la fuente
+    this.audioActual.src = dir_canciones + "/" + this.cancionActual.urlSong;
+    this.audioActual.volume = this.volumenInicial;
     this.renderPortada(dir_portadas + "/" + this.cancionActual.cover);
     this.renderCancionActual();
-  }
+
+    // Asegúrate de llamar a la función play después de cambiar la canción
+   
+}
+
 
   renderCancionActual(){
     document.getElementById("portada_nombreCancion").innerHTML= this.getCancionActual().nombre;
@@ -221,8 +261,8 @@ class Reproductor {
     document.getElementById("portada_generoCancion").innerHTML= this.getCancionActual().genero;
   }
 
-  setListaActual(nueva_lista_canciones){
-    this.listaActual = nueva_lista_canciones;
+  setListaActual(nueva_lista_canciones) {
+    this.listaActual = nueva_lista_canciones.slice(); // Utiliza slice() para crear una copia de la lista
   }
 
   getCancionActual(){
@@ -238,13 +278,183 @@ class Reproductor {
   }
 
   // para parar la canción que se está ejecutando y que se ejecute la otra canción seleccionada
-  stop(){
-    this.audioActual.pause();
-    this.audioActual.currentTime = 0;
+  stop() {
+    if (this.hayCancionActual()) {
+      this.audioActual.pause();
+      this.audioActual.currentTime = 0;
+    }
   }
 
-  play(){
-    this.audioActual.play();
+  detener() {
+    if (this.hayCancionActual()) {
+      this.stop();
+    }
+  }
+  
+  avanzar() {
+    if (this.hayCancionActual()) {
+      const lista = this.listaActual;
+      const indexCancionActual = lista.findIndex(cancion => cancion.cancionId === this.cancionActual.cancionId);
+  
+      if (indexCancionActual !== -1 && indexCancionActual < lista.length - 1) {
+        const siguienteCancion = lista[indexCancionActual + 1];
+        this.setCancionActual(siguienteCancion);
+        this.play();
+      } else {
+        // Si estamos en la última canción, simplemente detén la reproducción
+        this.stop();
+      }
+    } else {
+      // Si la lista está vacía, reproduce la primera canción del catálogo
+      const primeraCancion = MisCancionesCatalogo[0];
+      if (primeraCancion) {
+        this.setCancionActual(primeraCancion);
+        this.play();
+      } else {
+        this.setListaActual(MisCancionesCatalogo); // Establece la lista como el catálogo completo
+      }
+    }
+  }
+  
+  retroceder() {
+    if (this.hayCancionActual()) {
+      const lista = this.listaActual;
+      const indexCancionActual = lista.findIndex(cancion => cancion.cancionId === this.cancionActual.cancionId);
+  
+      if (indexCancionActual > 0) {
+        const cancionAnterior = lista[indexCancionActual - 1];
+        this.setCancionActual(cancionAnterior);
+        this.play();
+      } else {
+        // Si estamos en la primera canción, simplemente detén la reproducción
+        this.stop();
+      }
+    } else {
+      // Si la lista está vacía, reproduce la última canción del catálogo
+      const ultimaCancion = MisCancionesCatalogo[MisCancionesCatalogo.length - 1];
+      if (ultimaCancion) {
+        this.setCancionActual(ultimaCancion);
+        this.play();
+      } else {
+        this.setListaActual(MisCancionesCatalogo); // Establece la lista como el catálogo completo
+      }
+    }
+  }
+  
+    
+  
+  
+  retroceder() {
+    if (this.hayCancionActual()) {
+      const lista = this.listaActual;
+      const indexCancionActual = lista.findIndex(cancion => cancion.cancionId === this.cancionActual.cancionId);
+  
+      if (indexCancionActual > 0) {
+        const cancionAnterior = lista[indexCancionActual - 1];
+        this.setCancionActual(cancionAnterior);
+        this.play();
+      } else if (lista.length > 1) {
+        // Si estamos en la primera canción, pero hay más de una canción en la lista, avanza al final
+        this.setCancionActual(lista[lista.length - 1]);
+        this.play();
+      } else if (MisCancionesCatalogo.length > 0) {
+        // Si la lista está vacía pero hay canciones en el catálogo, reproduce la última canción del catálogo
+        this.setCancionActual(MisCancionesCatalogo[MisCancionesCatalogo.length - 1]);
+        this.play();
+      } else {
+        // Si la lista está vacía y no hay canciones en el catálogo, detén la reproducción
+        this.stop();
+      }
+    }
+  }
+  
+  
+  
+  toggleMute() {
+    this.muted = !this.muted;
+    this.audioActual.muted = this.muted;
+    this.renderMuteButton(); // Actualizar la interfaz de usuario
+  }
+
+  // Método para renderizar el botón de "mute" en la interfaz de usuario
+  renderMuteButton() {
+    const muteButton = document.getElementById('muteButton');
+
+    if (this.muted) {
+      muteButton.innerHTML = '<i class="fa fa-volume-off"></i>';
+    } else {
+      muteButton.innerHTML = '<i class="fa fa-volume-up"></i>';
+    }
+  }
+
+  siguienteCancion() {
+    if (this.listaActual && this.listaActual.length > 0) {
+      // Encuentra la posición de la canción actual en la lista
+      const currentIndex = this.listaActual.findIndex(
+        (cancion) => cancion.cancionId === this.cancionActual.cancionId
+      );
+  
+      // Calcula el índice de la siguiente canción
+      const nextIndex = (currentIndex + 1) % this.listaActual.length;
+  
+      if (nextIndex === 0 && this.listaActual.length > 1) {
+        // Si nextIndex es 0 y hay más de un elemento en la lista,
+        // significa que llegamos al final de la lista actual,
+        // pero no detenemos la reproducción
+        this.setCancionActual(this.listaActual[nextIndex]);
+        this.play();
+      } else {
+        // Establece la siguiente canción como canción actual y reproduce
+        this.setCancionActual(this.listaActual[nextIndex]);
+        this.play();
+      }
+    } else {
+      // Si la lista está vacía o no está definida, reproduce la primera canción del catálogo
+      const primeraCancion = MisCancionesCatalogo[0];
+      if (primeraCancion) {
+        this.setCancionActual(primeraCancion);
+        this.play();
+      } else {
+        this.setListaActual(MisCancionesCatalogo); // Establece la lista como el catálogo completo
+      }
+    }
+  }
+  
+  
+  
+  
+  
+ seleccionarCancion(idCancion, listaActual) {
+    // seleccionamos una canción identificando de qué Lista para enviarlo al Reproductor
+    let cancionSeleccionada = MisCanciones.buscarCancionById(idCancion);
+    var lista_canciones = [];
+  
+    switch (listaActual) {
+      case "lista_buscar":
+        lista_canciones = cancionesQueCumplen;
+        break;
+      case "lista_playlist":
+        lista_canciones = MiPlayList.getListaCanciones();
+        break;
+      case "lista_favoritos":
+        lista_canciones = MiFavoritosList.getListaCanciones();
+        break;
+      default:
+        break;
+    }
+  
+    MiReproductor.setCancionActual(cancionSeleccionada);
+    MiReproductor.setListaActual(lista_canciones);
+  }
+  
+
+
+  play() {
+    console.log("Play después de avanzar");
+    if (this.hayCancionActual() && this.interaccionUsuario) {
+      this.audioActual.play();
+      this.renderMuteButton(); // Asegúrate de actualizar el botón de silencio
+    }
   }
   pause(){
     this.audioActual.pause();
@@ -310,12 +520,12 @@ boton_buscar.addEventListener('click', function () {
 
 
 
-function seleccionarCancion(idCancion, listaActual){
+function seleccionarCancion(idCancion, listaActual) {
   // selecionamos una cancion identificando de que Lista para enviarlo al Reproductor
   let cancionSeleccionada = MisCanciones.buscarCancionById(idCancion);
   var lista_canciones = [];
 
-  switch(listaActual){
+  switch (listaActual) {
     case "lista_buscar":
       lista_canciones = cancionesQueCumplen;
       break;
@@ -331,7 +541,6 @@ function seleccionarCancion(idCancion, listaActual){
 
   MiReproductor.setCancionActual(cancionSeleccionada);
   MiReproductor.setListaActual(lista_canciones);
-
 }
 
 //Agregar la canción al playlist
@@ -372,7 +581,8 @@ const pauseBoton = document.getElementById('pause');
 
 playBoton.addEventListener('click', () => {
   // si el objeto de Cancion Actual en el reproductor no esta vacio
-  if( MiReproductor.hayCancionActual() ){
+  if (MiReproductor.hayCancionActual()) {
+    MiReproductor.interaccionUsuario = true;
     MiReproductor.play();
   }
 });
