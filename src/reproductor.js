@@ -24,7 +24,7 @@ class Song {
 class CatalogoDeCanciones {
   constructor() {
     this.CatalogoDeCanciones =  [
-      new Song ("Flowers","Miley Cyrus", "3:21", "Endless Summer Vacation", "Pop", "2023", '9album.jpg','1.mp3'), 
+      new Song ("Flowers","Miley Cyrus", "3:21", "Endless Summer Vacation", "Pop", "2023", '9album.jpg','1.mp3'),
       new Song ("Yeah!","Usher", "2:41", "Confessions", "Crunk&B", "2004", '10album.jpg','2.mp3'),
       new Song ("Deja vu","Prince Royce & Shakira  ", "3:18", "FIVE", "Bachata", "2017", '11album.jpg','3.mp3'),
       new Song ("Seven","Jungkook,", "3:24", "Golden", "Pop", "2023", '12album.jpg','4.mp3'),
@@ -32,18 +32,18 @@ class CatalogoDeCanciones {
       new Song ("Attention","Charlie Puth", "3:32", "Voicenotes", "Pop Rock", "2017", '14album.jpg','6.mp3'),
       new Song ("Dreamers","	Jungkook & RedOne", "3:21", "FIFA World Cup 2022", " K-pop, Pop", "2022", '15album.jpg','7.mp3'),
       new Song ("Sofía","Alvaro Soler", "3:33", "Eterno agosto", "Pop", "2016", '16album.jpg','8.mp3'),
-      new Song ("Desde Cuando","Alejandro Sanz", "3:57", "Paraiso Express", "Pop", "2009", '17album.jpg','9.mp3'), 
-      new Song ("La media Vuelta","Luis Miguel", "2:41", "Segundo Romance", "Bolero Ranchero", "1994", '18album.jpg','10.mp3'),  
-      new Song ("Hasta que me olvides","Luis Miguel", "4:41", "Segundo Romance", "Pop", "1994", '18album.jpg','11.mp3'), 
-      new Song ("You are not alone","Michael Jackson", "5:45", "HIStory: Past, Present and Future, Book I", "Pop", "1995", '19album.jpg','12.mp3'), 
-      new Song ("Creo en mi","Natalia Jimenez", "3:48", "Creo en mi", "Pop latino", "2015", '20album.jpg','13.mp3'), 
-      new Song ("Nunca es suficiente","Angeles azules", "4:26", "aEsto si es cumbia", "Cumbia", "2018", '21album.jpg','41.mp3'), 
-      new Song ("Don't stop me now","Queen", "3:29", "Jazz", "Pop rock", "1978", '22album.jpg','15.mp3'), 
-      new Song ("We Will Rock You ","Queen", "2:01", "Jazz", "Pop rock", "1978", '22album.jpg','16.mp3'), 
-      new Song ("Que se parezca a ti","Tiago PZK", "3:04", "Portales", "Urbano Latino", "2022", '1album.jpg','17.mp3'), 
-      new Song ("Bemaste","Tiago PZK", "2:21", "Portales", "Urbano Latino", "2022", '1album.jpg','18.mp3'), 
+      new Song ("Desde Cuando","Alejandro Sanz", "3:57", "Paraiso Express", "Pop", "2009", '17album.jpg','9.mp3'),
+      new Song ("La media Vuelta","Luis Miguel", "2:41", "Segundo Romance", "Bolero Ranchero", "1994", '18album.jpg','10.mp3'),
+      new Song ("Hasta que me olvides","Luis Miguel", "4:41", "Segundo Romance", "Pop", "1994", '18album.jpg','11.mp3'),
+      new Song ("You are not alone","Michael Jackson", "5:45", "HIStory: Past, Present and Future, Book I", "Pop", "1995", '19album.jpg','12.mp3'),
+      new Song ("Creo en mi","Natalia Jimenez", "3:48", "Creo en mi", "Pop latino", "2015", '20album.jpg','13.mp3'),
+      new Song ("Nunca es suficiente","Angeles azules", "4:26", "aEsto si es cumbia", "Cumbia", "2018", '21album.jpg','41.mp3'),
+      new Song ("Don't stop me now","Queen", "3:29", "Jazz", "Pop rock", "1978", '22album.jpg','15.mp3'),
+      new Song ("We Will Rock You ","Queen", "2:01", "Jazz", "Pop rock", "1978", '22album.jpg','16.mp3'),
+      new Song ("Que se parezca a ti","Tiago PZK", "3:04", "Portales", "Urbano Latino", "2022", '1album.jpg','17.mp3'),
+      new Song ("Bemaste","Tiago PZK", "2:21", "Portales", "Urbano Latino", "2022", '1album.jpg','18.mp3'),
       new Song ("Yesterday","The Beatles", "1:59", "Help!", "Chamber Pop", "1965", '2album.jpg','19.mp3'),
-      new Song ("Mamichula","Nicki Nicole", "3:38", "Atrevido", "Trap Latino", "2020", '3album.jpg','20.mp3'), 
+      new Song ("Mamichula","Nicki Nicole", "3:38", "Atrevido", "Trap Latino", "2020", '3album.jpg','20.mp3'),
       new Song ("Take me to church","Hozier", "4:16", "Take me to church", "Soul", "2014", '4album.jpg','21.mp3'),
       new Song ("CNV vol 30","Pure Negga x Rastachai", "4:13", "CNV Vol 30", "Reggae", "2021", '5album.jpg','22.mp3'),
       new Song ("Let your hair down","Magic!", "4:28", "Don't Kill the magic", "Pop", "2014", '6album.jpg','23.mp3'),
@@ -72,7 +72,7 @@ class CatalogoDeCanciones {
   // esta función busca al id de la canción, compara los id y obtengo un resultado array en la busqueda en el CatalogoDeCanciones
   buscarCancionById(idCancion){
     let cancionSeleccionada = new Array();
-    this.CatalogoDeCanciones.forEach (itemCancion => 
+    this.CatalogoDeCanciones.forEach (itemCancion =>
       {
         if(itemCancion.cancionId===idCancion){
           cancionSeleccionada = itemCancion;
@@ -113,10 +113,10 @@ class PlayList {
     this.listaCanciones = [];
     this.cancionActual = {};
   }
-  // utilizo el mismo método de busqueda para la class playlist 
+  // utilizo el mismo método de busqueda para la class playlist
   buscarCancionById(idCancion){
     let cancionSeleccionada = new Array;
-    this.listaCanciones.forEach (itemCancion => 
+    this.listaCanciones.forEach (itemCancion =>
       {
         if(itemCancion.cancionId===idCancion){
           cancionSeleccionada = itemCancion;
@@ -129,7 +129,7 @@ class PlayList {
   getListaCanciones(){
     return this.listaCanciones;
   }
-  
+
   // método para agregar el objeto canción en una sección (playlist o favoritos, utilizo la misma para las dos secciones)
   //aquí coloco esta condicionante para que no se repita la canción en mi sección, así evito que se dupliquen las canciones.
   agregarCancionByObject(objCancion){
@@ -197,19 +197,19 @@ class Reproductor {
     this.volumenInicial = 0.5;
   }
 
-  //aquí mostramos la canción en el reproductor, se concatena al urlSong (mp3) y la portada 
+  //aquí mostramos la canción en el reproductor, se concatena al urlSong (mp3) y la portada
   setCancionActual(objCancion){
     this.cancionActual = objCancion;
-    
+
     // para reproducirse otra canción hay que parar la canción actual, caso contrario se reproducen al mismo tiempo
     if(this.hayCancionActual()){
       this.stop();
     }
 
-    const miAudio = new Audio(dir_canciones + "./"+ this.cancionActual.urlSong);
+    const miAudio = new Audio(`./assets/${dir_canciones}/${this.cancionActual.urlSong}`);
     miAudio.volume = this.volumenInicial;
     this.audioActual = miAudio;
-    this.renderPortada(dir_portadas + "/" + this.cancionActual.cover);
+    this.renderPortada(`./assets/${dir_portadas}/${this.cancionActual.cover}`);
     this.renderCancionActual();
   }
 
@@ -231,10 +231,10 @@ class Reproductor {
 
   hayCancionActual(){
     //validamos si esta vacio el objeto cancionActual y devolvemos true o false
-    if(Object.entries(this.getCancionActual()).length === 0 ) 
+    if(Object.entries(this.getCancionActual()).length === 0 )
       return false;
     else
-      return true; 
+      return true;
   }
 
   // para parar la canción que se está ejecutando y que se ejecute la otra canción seleccionada
@@ -254,7 +254,7 @@ class Reproductor {
     let ElementoHtml = document.getElementById("portadaAlbum");
     ElementoHtml.innerHTML = `<img src="${imgUrl}" />`;
   }
-  
+
 }
 // Fin Clase Reproductor
 
@@ -287,7 +287,7 @@ const MiReproductor = new Reproductor();
 
 // renderizamos en la seccion de Lista de Busqueda la lista completa antes de buscar
 MisCanciones.renderListaBuscar(MisCancionesCatalogo, lista_buscar);
-  
+
 
 //Evento Buscar del boton_buscar para realizar busqueda según el texto del input texto_para_buscar
 boton_buscar.addEventListener('click', function () {
@@ -299,7 +299,7 @@ boton_buscar.addEventListener('click', function () {
     cancionesQueCumplen = MisCanciones.buscarCancion(valor_buscar);
     // si no se encuentran las canciones, entonces muestra el mensaje
     if (cancionesQueCumplen.length === 0){
-      lista_buscar.innerHTML = `<li> No se encontraron canciones</li>`; 
+      lista_buscar.innerHTML = `<li> No se encontraron canciones</li>`;
     }else{
       //imprimimos en la seccion HTML correspondiente con método renderListarBuscar las canciones que cumplen en la busqueda
       MisCanciones.renderListaBuscar(cancionesQueCumplen, lista_buscar);

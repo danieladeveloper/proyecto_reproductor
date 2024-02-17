@@ -43,7 +43,7 @@ a{
 }
 
 .buscadorContenedor {
-    
+
     display: block;
     padding: 20px;
     background-color: blueviolet;
@@ -70,7 +70,7 @@ a{
 /* cover album */
 
 .coveralbum{
-    background-image: url(./img/fondoreproductor.jpg);
+    background-image: url(../assets/img/fondoreproductor.jpg);
     width: 400px;
     height: 270px;
     align-self: center;
@@ -80,12 +80,12 @@ a{
     background-size: contain;
     background-repeat: no-repeat;
     overflow: hidden;
-    
+
 }
 .coveralbum img{
     max-width: 100%;
     max-height: auto;
-    
+
 }
 
 
@@ -131,7 +131,7 @@ a{
     width: 100%;
     border: black solid 1px;
     padding: 15px;
-    
+
 }
 .cancionesList {
     height: 100px;
