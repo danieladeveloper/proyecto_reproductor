@@ -1,0 +1,54 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+#contenedor_login{
+    width: 220px;
+    padding: 15px;
+    background-color: blueviolet;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    
+    & #usuarioInput{
+        border: 0px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    & #passwordInput{
+        border: 0px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    & div{
+        margin-bottom: 15px;
+    }
+
+    & div:last-child{
+        margin-bottom: 0px;
+        text-align: center;
+    }
+}
+
+.contenedor_usuario, .contenedor_password{
+    background-color: white;
+}
+
+
+form div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+form div i{
+    margin-right: 10px;
+} 
+
+
+.tituloLogin{
+    margin-top: 20%;
+    margin-bottom: 15px;
+    text-align: center;
+}

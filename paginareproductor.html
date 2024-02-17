@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reproductor de Audio</title>
+        <!-- https://cdnjs.com/libraries/font-awesome -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <link rel="stylesheet" type="text/css" href="reproductor.css">
+        <link rel="icon" type="image/png" href="img/favicon.png">
+    </head>
+
+    <body>
+        <div class="tituloReproductor">
+            <h1>Reproductor de Audio</h1>
+        </div>
+        <div class="todo">
+            <!-- buscador -->
+            
+            <div class="buscadorylistas">
+
+                <div class="buscadorContenedor">
+                    <input id="texto_para_buscar"  class="texto_buscador" type="text" placeholder="Busque su canción"/>
+                    <!--<i class="fa-solid fa-magnifying-glass"></i>-->
+                    <button id="boton_buscar" class="botonsearch"> Buscar </button>
+
+                </div>
+            
+
+                <div class="listasdereproduccion">
+                    <div class="busquedaListaContenedor">
+                        <h2>Búsqueda</h2>
+                        <ul id="lista_buscar" class="cancionesList">
+                            <li>
+                                <div class="titulos_contenedor">
+                                    <div class="titulo_cancion">canción 1 - autor</div>
+                                    <div class="info_cancion">Album canción 1 - año - duración - genero</div>
+                                </div>
+                                <div class="iconos_cancion">
+                                    <a href="#" title="play"><i class="fa fa-play" aria-hidden="true"> </i> </a>
+                                    <a href="#" title="favorite"><i class="fa fa-heart" aria-hidden="true"></i> </a>
+                                    <a href="#" title="trash"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                </div>
+                            </li>       
+                        </ul>
+                    </div>
+
+                    <div class="Playlists">
+                        <h2 >Playlists</h2>
+                        <ul id="listaPlaylist" class="cancionesList">
+                            <li>
+                                <div class="titulos_contenedor">
+                                    <div  class="titulo_cancion">canción 1 - autor</div>
+                                    <div class="info_cancion">Album canción 1 - año - duración - genero</div>
+                                </div>
+                                <div class="iconos_cancion">
+                                    <a href="#" title="play"><i class="fa fa-play" aria-hidden="true"> </i> </a>
+                                    <a href="#" title="favorite"><i class="fa fa-heart" aria-hidden="true"></i> </a> 
+                                    <a href="#" title="trash"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="favoritosListaContenedor">
+                        <h2 >Favoritos</h2>
+                        <ul id="listaFavoritos" class="cancionesList">
+                            <li>
+                                <div class="titulos_contenedor">
+                                    <div  class="titulo_cancion">canción 1 - autor</div>
+                                    <div class="info_cancion">Album canción 1 - año - duración - genero</div>
+                                </div>
+                                <div class="iconos_cancion">
+                                    <a href="#" title="play"><i class="fa fa-play" aria-hidden="true"> </i> </a>
+                                    <a href="#" title="dislike"><i class="fa fa-times" aria-hidden="true"></i> </a>
+                                    <a href="#" title="plus"><i class="fa fa-plus" aria-hidden="true"></i> </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- REPRODUCTOR -->
+            <div class="reproductor">
+                <!-- PORTADA -->
+                <div class="coveralbum" id="portadaAlbum">
+                    
+                </div>
+                <!-- DESCRIPCIÓN DE LA CANCIÓN -->
+                <div class="descripcionReproductor">
+                    <div><span>Nombre:</span><span id="portada_nombreCancion"></span></div>
+                    <div><span>Duración:</span><span id="portada_duracionCancion"></span></div>
+                    <div><span>Album:</span><span id="portada_albumCancion"></span></div>
+                    <div><span>Año:</span><span id="portada_anioCancion"></span></div>
+                    <div><span>Género:</span><span id="portada_generoCancion"></span></div>
+                </div>
+
+                <div class="tiempo" id="tiempoCancion">
+                    
+                </div>
+                <!-- BOTONES DE LA CANCIÓN -->
+                <div>
+                    <ul class="botonesReproductor">
+                        <li><button id="atras" title="Canción anterior"><i class="fa-solid fa-backward" aria-hidden="true"></i></button></li>
+                        <li><button id="play" title="Reproducir"><i class="fa fa-play" aria-hidden="true"></i></button></li>
+                        <li><button id="adelante" title="Canción siguiente"><i class="fa-solid fa-forward" aria-hidden="true"></i></button></li>
+                        <li><button id="stop" title="Parar"><i class="fa fa-stop" aria-hidden="true"></i></button></li>
+                        <li><button id="pause" title="Pausar"><i class="fa fa-pause" aria-hidden="true"></i></button></li>
+                        <li><button id="mute" title="Mute / Sonido"><i id="volumen_off" class="fa fa-volume-off" aria-hidden="true"></i>
+                            <i id="volumen_on" class="fa-solid fa-volume-high"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <script src="reproductor.js">
+
+    </script>
+
+</html>
