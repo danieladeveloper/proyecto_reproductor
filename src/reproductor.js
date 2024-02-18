@@ -222,6 +222,7 @@ class Reproductor {
 
     this.stop();
     this.muted = false;
+    this.renderMuteButton();
 
     this.audioActual.addEventListener('ended', () => {
       this.siguienteCancion();
@@ -526,6 +527,8 @@ function seleccionarCancion(idCancion, listaActual) {
 
   MiReproductor.setCancionActual(cancionSeleccionada, true);
   MiReproductor.setListaActual(lista_canciones);
+
+  return false;
 }
 
 //Agregar la canción al playlist
