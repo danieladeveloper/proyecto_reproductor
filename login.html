@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-   <link rel="stylesheet" href="login.css">
-   
-        
+    
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="tituloLogin">
-        <h1>Login de Usuario</h1>
+
+    <div class="contenedortodo" id="contenedorlog">
+        <div class="tituloLogin">
+            <h1>Bienvenido</h1>
+        </div>
+        <div id="contenedor_login">
+            <form class="formulario">
+                <div class="contenedor_usuario">
+                    <input type="text" class="ingreso_texto" placeholder="Ingrese un usuario" id="usuarioInput">
+                    <i class="bi bi-person"></i>
+                </div>
+                <div class="contenedor_password">
+                    <input type="password" class="ingreso_texto" placeholder="Ingrese una contraseña" id="passwordInput">
+                    <i class="bi bi-eye" id="view"></i>
+                </div>
+
+                <button type="button" class="submit" id="btnLogin"> Login </button>
+
+
+
+
+            </form>
+
+        </div>
+
     </div>
-   <div id="contenedor_login">
-    <form class="formulario">
-        <div class="contenedor_usuario">
-            <input type="text" class="ingreso_texto" id="usuarioInput">
-            <i class="bi bi-person"></i>
-        </div>
-        <div class="contenedor_password">
-            <input type="password" class="ingreso_texto" id="passwordInput">
-            <i class="bi bi-eye"></i>
-        </div>
-        
-        <button type="button" class="submit" id="btnLogin"> Login </button>
-        
-
-
-
-    </form>
-
-   </div>
 </body>
 <script src="login.js"> </script>
+
 </html>

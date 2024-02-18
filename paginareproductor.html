@@ -10,11 +10,15 @@
         
         <link rel="stylesheet" type="text/css" href="reproductor.css">
         <link rel="icon" type="image/png" href="img/favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     </head>
 
     <body>
         <div class="tituloReproductor">
             <h1>Reproductor de Audio</h1>
+            <a href="./login.html" class="logincircle"> <i class="fa fa-user" aria-hidden="true"></i></a>
         </div>
         <div class="todo">
             <!-- buscador -->
@@ -22,7 +26,7 @@
             <div class="buscadorylistas">
 
                 <div class="buscadorContenedor">
-                    <input id="texto_para_buscar"  class="texto_buscador" type="text" placeholder="Busque su canción"/>
+                    <input id="texto_para_buscar"  class="texto_buscador" type="text" placeholder="Search song"/>
                     <!--<i class="fa-solid fa-magnifying-glass"></i>-->
                     <button id="boton_buscar" class="botonsearch"> Buscar </button>
 
@@ -93,6 +97,7 @@
                 <!-- DESCRIPCIÓN DE LA CANCIÓN -->
                 <div class="descripcionReproductor">
                     <div><span>Nombre:</span><span id="portada_nombreCancion"></span></div>
+                    <div><span>Artista:</span><span id="portada_artistaCancion"></span></div>
                     <div><span>Duración:</span><span id="portada_duracionCancion"></span></div>
                     <div><span>Album:</span><span id="portada_albumCancion"></span></div>
                     <div><span>Año:</span><span id="portada_anioCancion"></span></div>

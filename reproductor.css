@@ -2,27 +2,65 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+  
 }
 
 body{
     max-width: 1200px;
     margin:auto;
     font-size: 1.0em;
+    background-image: url(./img/constelaa.jpg);
+    height: 800px;
+    font-family: STIX Two;
 }
 
 .tituloReproductor{
     margin-top: 15px;
     margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    height: 60px;
 }
 .todo{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 25px;
+    background: linear-gradient(rgb(79, 79, 192), pink);
+    opacity: 0.8;
+    filter: blur(0.6);
+   
+}
+
+h1{
+    color: white;
+    font-family: STIX Two;
+    size: 8em;
+      
 }
 
 a{
     text-decoration: none;
     color:#C1009B;
+}
+
+.logincircle{
+    color:white;
+    top: 5%;
+    position: absolute;
+    left: 90%;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 8px;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.logincircle:hover{
+    color: fuchsia;
+    size: 15px;
+    border-color: fuchsia;
+    size: 50px;
 }
 /* BUSCADOR */
 
@@ -46,7 +84,6 @@ a{
     
     display: block;
     padding: 20px;
-    background-color: blueviolet;
     justify-content: center;
     margin-bottom: 20px;
 
@@ -55,18 +92,20 @@ a{
         outline: none;
         padding: 5px ;
         font-size: 1rem;
-        border: 1px solid black;
+        border: 1px solid white;
         border-radius: 24px;
         width: auto;
     }
 }
 
+.listasdereproduccion{
+    padding-left: 10%;
+    padding-bottom: 10%;
+}
 
 /* LISTAS DE REPRODUCCIÓN */
 
-.reproductor{
-    border: 2px black solid;
-}
+
 /* cover album */
 
 .coveralbum{
@@ -118,10 +157,48 @@ a{
     }
 }
 
+#atras:hover{
+    color: fuchsia;
+    cursor: pointer;
+    outline: none;
+}
+
+#stop:hover {
+    color: fuchsia;
+    cursor: pointer;
+    outline: none;
+}
+
+#adelante:hover {
+    color: fuchsia;
+    cursor: pointer;
+    outline: none;
+}
+
+#play:hover {
+    color: fuchsia;
+    cursor: pointer;
+    outline: none;
+}
+
+#pause:hover {
+    color: fuchsia;
+    cursor: pointer;
+    outline: none;
+}
+
+
+#muteButton:hover {
+    color: fuchsia;
+    cursor: pointer;
+    outline: none;
+}
+
+
 .busquedaListaContenedor{
     display: block;
     width: 100%;
-    border: black solid 1px;
+    border: white solid 1px;
     padding: 15px;
 }
 
@@ -129,7 +206,7 @@ a{
     display: block;
     margin-top: 2%;
     width: 100%;
-    border: black solid 1px;
+    border: white solid 1px;
     padding: 15px;
     
 }
@@ -166,7 +243,7 @@ a{
     display: block;
     margin-top: 2%;
     width: 100%;
-    border: black solid 1px;
+    border:white solid 1px;
     padding: 15px;
 }
 
@@ -187,4 +264,29 @@ ul li:hover{
 
 .tiempo{
     text-align: center;
+}
+
+i{
+    color: black;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

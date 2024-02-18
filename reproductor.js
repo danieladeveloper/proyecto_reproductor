@@ -255,6 +255,7 @@ class Reproductor {
 
   renderCancionActual(){
     document.getElementById("portada_nombreCancion").innerHTML= this.getCancionActual().nombre;
+    document.getElementById("portada_artistaCancion").innerHTML= this.getCancionActual().autor;
     document.getElementById("portada_duracionCancion").innerHTML= this.getCancionActual().duracion;
     document.getElementById("portada_albumCancion").innerHTML= this.getCancionActual().album;
     document.getElementById("portada_anioCancion").innerHTML= this.getCancionActual().año;
