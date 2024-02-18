@@ -247,6 +247,8 @@ class Reproductor {
     this.audioActual.volume = this.volumenInicial;
     this.renderPortada("./assets/" + dir_portadas + "/" + this.cancionActual.cover);
     this.renderCancionActual();
+    // this.interaccionUsuario=true;
+    // this.play();
 
     // Asegúrate de llamar a la función play después de cambiar la canción
 
@@ -272,10 +274,7 @@ class Reproductor {
 
   hayCancionActual(){
     //validamos si esta vacio el objeto cancionActual y devolvemos true o false
-    if(Object.entries(this.getCancionActual()).length === 0 )
-      return false;
-    else
-      return true;
+    return Object.entries(this.getCancionActual()).length !== 0;
   }
 
   // para parar la canción que se está ejecutando y que se ejecute la otra canción seleccionada
@@ -523,6 +522,7 @@ boton_buscar.addEventListener('click', function () {
 
 function seleccionarCancion(idCancion, listaActual) {
   // selecionamos una cancion identificando de que Lista para enviarlo al Reproductor
+  console.log('entrando a seleccionarCancion')
   let cancionSeleccionada = MisCanciones.buscarCancionById(idCancion);
   var lista_canciones = [];
 
@@ -568,7 +568,7 @@ function agregarAFavoritoslist(idCancion){
 // borrar la canción de favoritos
 function eliminarDeFavoritoslist(idCancion){
   MiFavoritosList.eliminarCancionById(idCancion, "Favoritos");
-  MiFavoritosList.renderPlaylist(listaFavoritos);
+  MiFavoritosList.renderFavoritoslist(listaFavoritos);
   return false;
 }
 
