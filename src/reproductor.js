@@ -40,7 +40,7 @@ class CatalogoDeCanciones {
       new Song("Hasta que me olvides", "Luis Miguel", "4:41", "Segundo Romance", "Pop", "1994", '18album.jpg', '11.mp3'),
       new Song("You are not alone", "Michael Jackson", "5:45", "HIStory: Past, Present and Future, Book I", "Pop", "1995", '19album.jpg', '12.mp3'),
       new Song("Creo en mi", "Natalia Jimenez", "3:48", "Creo en mi", "Pop latino", "2015", '20album.jpg', '13.mp3'),
-      new Song("Nunca es suficiente", "Angeles azules", "4:26", "aEsto si es cumbia", "Cumbia", "2018", '21album.jpg', '41.mp3'),
+      new Song("Nunca es suficiente", "Angeles azules", "4:26", "aEsto si es cumbia", "Cumbia", "2018", '21album.jpg', '14.mp3'),
       new Song("Don't stop me now", "Queen", "3:29", "Jazz", "Pop rock", "1978", '22album.jpg', '15.mp3'),
       new Song("We Will Rock You ", "Queen", "2:01", "Jazz", "Pop rock", "1978", '22album.jpg', '16.mp3'),
       new Song("Que se parezca a ti", "Tiago PZK", "3:04", "Portales", "Urbano Latino", "2022", '1album.jpg', '17.mp3'),
@@ -222,6 +222,7 @@ class Reproductor {
 
     this.stop();
     this.muted = false;
+    this.renderMuteButton();
 
     this.audioActual.addEventListener('ended', () => {
       this.siguienteCancion();
@@ -526,6 +527,7 @@ function seleccionarCancion(idCancion, listaActual) {
 
   MiReproductor.setCancionActual(cancionSeleccionada, true);
   MiReproductor.setListaActual(lista_canciones);
+  return false;
 }
 
 //Agregar la canción al playlist
