@@ -290,3 +290,7 @@ i{
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.iconos_cancion, a:hover{
+    color: black;
+}
