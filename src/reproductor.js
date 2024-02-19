@@ -28,9 +28,9 @@ class CatalogoDeCanciones {
   constructor() {
     this.CatalogoDeCanciones = [
       new Song("Flowers", "Miley Cyrus", "3:21", "Endless Summer Vacation", "Pop", "2023", '9album.jpg', '1.mp3'),
-      new Song("Yeah!", "Usher", "2:41", "Confessions", "Crunk&B", "2004", '10album.jpg', '2.mp3'),
+      new Song("Yeah!", "Usher", "2:41", "Confessions", "Crunk & B", "2004", '10album.jpg', '2.mp3'),
       new Song("Deja vu", "Prince Royce & Shakira  ", "3:18", "FIVE", "Bachata", "2017", '11album.jpg', '3.mp3'),
-      new Song("Seven", "Jungkook,", "3:24", "Golden", "Pop", "2023", '12album.jpg', '4.mp3'),
+      new Song("Seven", "Jungkook", "3:24", "Golden", "Pop", "2023", '12album.jpg', '4.mp3'),
       new Song("Dangerously", "Charlie Puth", "3:22", "Nine Track Mind", "Pop", "2016", '13album.jpg', '5.mp3'),
       new Song("Attention", "Charlie Puth", "3:32", "Voicenotes", "Pop Rock", "2017", '14album.jpg', '6.mp3'),
       new Song("Dreamers", "	Jungkook & RedOne", "3:21", "FIFA World Cup 2022", " K-pop, Pop", "2022", '15album.jpg', '7.mp3'),
@@ -40,7 +40,7 @@ class CatalogoDeCanciones {
       new Song("Hasta que me olvides", "Luis Miguel", "4:41", "Segundo Romance", "Pop", "1994", '18album.jpg', '11.mp3'),
       new Song("You are not alone", "Michael Jackson", "5:45", "HIStory: Past, Present and Future, Book I", "Pop", "1995", '19album.jpg', '12.mp3'),
       new Song("Creo en mi", "Natalia Jimenez", "3:48", "Creo en mi", "Pop latino", "2015", '20album.jpg', '13.mp3'),
-      new Song("Nunca es suficiente", "Angeles azules", "4:26", "aEsto si es cumbia", "Cumbia", "2018", '21album.jpg', '41.mp3'),
+      new Song("Nunca es suficiente", "Angeles azules", "4:26", "Esto si es cumbia", "Cumbia", "2018", '21album.jpg', '14.mp3'),
       new Song("Don't stop me now", "Queen", "3:29", "Jazz", "Pop rock", "1978", '22album.jpg', '15.mp3'),
       new Song("We Will Rock You ", "Queen", "2:01", "Jazz", "Pop rock", "1978", '22album.jpg', '16.mp3'),
       new Song("Que se parezca a ti", "Tiago PZK", "3:04", "Portales", "Urbano Latino", "2022", '1album.jpg', '17.mp3'),
@@ -55,7 +55,7 @@ class CatalogoDeCanciones {
       new Song("Viva la vida", "Coldplay", "4:01", "Viva la vida", "Pop", "2008", '26album.jpg', '26.mp3'),
       new Song("Take on me", "A-ha", "4:04", "Hunting high and low", "Alternative", "1985", '27album.jpg', '27.mp3'),
       new Song("Dusk till down", "Zayn & Sia", "3:55", "Dusk Till Down", "Pop", "2017", '28album.jpg', '28.mp3'),
-      new Song("Señorita", "Shawn Mendes & Camila Cabello", "Shawn Mendes (Deluxe) y Romance", "3:25", "Latin Pop", "2019", '29album.jpg', '29.mp3'),
+      new Song("Señorita", "Shawn Mendes & Camila Cabello", "3:25", "Shawn Mendes (Deluxe) y Romance", "Latin Pop", "2019", '29album.jpg', '29.mp3'),
       new Song("Empire States of Mind", "Alicia Keys", "3:29", "The Element of freedom", "R&B/Soul", "2009", '30album.jpg', '30.mp3')
     ];
   }
