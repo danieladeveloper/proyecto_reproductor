@@ -4,6 +4,7 @@
 - Sandra Anabel Palacios Abad -> sandraanabel21@gmail.com
 - Sofía Elizabeth Terán Zavala -> sofiteranz@hotmail.com
 - Verónica Daniela Guasumba Tupiza -> vdanielagt@gmail.com
+- Andrea Carolina De la Rosa Trujillo -> andlr31@hotmail.com
 
 
 ### Descripción:
