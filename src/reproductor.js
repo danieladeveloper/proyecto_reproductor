@@ -308,14 +308,12 @@ class Reproductor {
       const lista = this.listaActual;
       const indexCancionActual = lista.findIndex(cancion => cancion.cancionId === this.cancionActual.cancionId);
 
-      if (indexCancionActual !== -1 && indexCancionActual < lista.length - 1) {
-        const siguienteCancion = lista[indexCancionActual + 1];
+        if (indexCancionActual !== -1) {
+          const siguienteIndex = (indexCancionActual + 1) % lista.length;
+          const siguienteCancion = lista[siguienteIndex];
         this.setCancionActual(siguienteCancion);
         this.play();
-      } else {
-        // Si estamos en la última canción, simplemente detén la reproducción
-        this.stop();
-      }
+      } 
     } else {
       // Si la lista está vacía, reproduce la primera canción del catálogo
       const primeraCancion = MisCancionesCatalogo[0];
@@ -581,6 +579,12 @@ pauseBoton.addEventListener('click', () => {
   }
 });
 
+input_buscador.addEventListener('input', () => {
+  // si el texto a buscar en la caja de texto vuelve a estar vacio lo llenamos de las canciones iniciales
+  if (input_buscador.value.trim().length === 0){
+    MisCanciones.renderListaBuscar(MisCancionesCatalogo, lista_buscar);
+  }
+});
 
 
 
