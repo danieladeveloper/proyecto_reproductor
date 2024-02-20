@@ -307,6 +307,10 @@ class Reproductor {
     if (this.hayCancionActual()) {
       const lista = this.listaActual;
       const indexCancionActual = lista.findIndex(cancion => cancion.cancionId === this.cancionActual.cancionId);
+  
+      if (indexCancionActual !== -1) {
+        const siguienteIndex = (indexCancionActual + 1) % lista.length;
+        const siguienteCancion = lista[siguienteIndex];
 
         if (indexCancionActual !== -1) {
           const siguienteIndex = (indexCancionActual + 1) % lista.length;
@@ -314,6 +318,7 @@ class Reproductor {
         this.setCancionActual(siguienteCancion);
         this.play();
       } 
+      }
     } else {
       // Si la lista está vacía, reproduce la primera canción del catálogo
       const primeraCancion = MisCancionesCatalogo[0];
@@ -325,6 +330,7 @@ class Reproductor {
       }
     }
   }
+  
 
   retroceder() {
     if (this.hayCancionActual()) {
